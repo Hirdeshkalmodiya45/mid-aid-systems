@@ -36,7 +36,7 @@ const Header = ({ isLoggedIn = false, onLogout }: HeaderProps) => {
                   Dashboard
                 </Link>
                 <Link
-                  to="/patients"
+                  to="/p"
                   className={`text-sm font-medium transition-colors hover:text-primary ${
                     isActive('/patients') ? 'text-primary' : 'text-muted-foreground'
                   }`}
@@ -89,7 +89,7 @@ const Header = ({ isLoggedIn = false, onLogout }: HeaderProps) => {
                   <Link to="/login">Login</Link>
                 </Button>
                 <Button asChild>
-                  <Link to="/signup">Get Started</Link>
+                  <Link to="/dashboard">Get Started</Link>
                 </Button>
               </>
             )}

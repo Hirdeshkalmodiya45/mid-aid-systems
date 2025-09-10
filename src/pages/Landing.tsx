@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import Header from "@/components/Header";
@@ -63,6 +64,65 @@ const Landing = () => {
     "FHIR-compliant data exchange ensuring global healthcare interoperability",
     "Evidence-based traditional medicine documentation and research support"
   ];
+ const [namasteCode, setNamasteCode] = useState("");
+  const [ayurvedaTerm, setAyurvedaTerm] = useState("");
+  const [icd11Code, setIcd11Code] = useState("");
+  const [error, setError] = useState("");
+
+  const handleConvert = async () => {
+    setError("");
+    setIcd11Code("");
+    const code = namasteCode.trim().toUpperCase();
+
+    // Simulated lookup (replace with real API call)
+    const namasteToIcd11Map = {
+      "NAMASTE-A001": "ICD11-1A01.0",
+      "NAMASTE-A002": "ICD11-1A02.1",
+      "NAMASTE-B001": "ICD11-2B41.0",
+      "NAMASTE-B002": "ICD11-2B41.1",
+      "NAMASTE-C001": "ICD11-3C80.0",
+      "NAMASTE-D001": "ICD11-4D90.0",
+    };
+if (namasteToIcd11Map[code]) {
+      setIcd11Code(namasteToIcd11Map[code]);
+    } else {
+      setError("NAMASTE code not found in our database.");
+    }
+  };
+
+  const handleAyurvedaSearch = async () => {
+    setError("");
+    setIcd11Code("");
+
+    const term = ayurvedaTerm.trim().toLowerCase();
+
+    // Simulated Ayurveda term to NAMASTE code map
+    const termToNamasteMap = {
+      "kaphaja kasa": "NAMASTE-A001",
+      "pittaja jvara": "NAMASTE-A002",
+      "vataja shirahshoola": "NAMASTE-B001",
+      "pittaja shirahshoola": "NAMASTE-B002",
+      "vatavyadhi": "NAMASTE-C001",
+      "jathara roga": "NAMASTE-D001",
+    };
+
+    const resolvedCode = termToNamasteMap[term];
+
+    if (resolvedCode) {
+      setNamasteCode(resolvedCode);
+      const namasteToIcd11Map = {
+ "NAMASTE-A001": "ICD11-1A01.0",
+        "NAMASTE-A002": "ICD11-1A02.1",
+        "NAMASTE-B001": "ICD11-2B41.0",
+        "NAMASTE-B002": "ICD11-2B41.1",
+        "NAMASTE-C001": "ICD11-3C80.0",
+        "NAMASTE-D001": "ICD11-4D90.0",
+      };
+      setIcd11Code(namasteToIcd11Map[resolvedCode]);
+    } else {
+      setError("Ayurveda term not found. Try a different one.");
+    }
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-background to-primary/5">
@@ -152,6 +212,67 @@ const Landing = () => {
           </div>
         </div>
       </section>
+  
+    <section id="converter" className="py-20">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl lg:text-4xl font-bold mb-4">Code Converter</h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            Convert NAMASTE codes or Ayurveda terms to ICD-11 codes.
+          </p>
+        </div>
+        <div className="flex justify-center">
+          <Card className="p-8 w-full max-w-lg shadow-xl">
+            <CardContent className="space-y-6">
+              <div className="space-y-2">
+                <label htmlFor="namaste-code" className="text-sm font-medium">
+                  Enter NAMASTE Code:
+                </label>
+                <input
+                  id="namaste-code"
+                  type="text"
+                  className="input"
+                  placeholder="e.g., NAMASTE-A001"
+                  value={namasteCode}
+                  onChange={(e) => setNamasteCode(e.target.value)}
+                />
+                <Button onClick={handleConvert} className="w-full">
+                  Convert NAMASTE to ICD-11
+                </Button>
+              </div>
+
+              <div className="space-y-2 pt-6 border-t">
+                <label htmlFor="ayurveda-term" className="text-sm font-medium">
+                  Or search by Ayurveda term:
+                </label>
+                <input
+                  id="ayurveda-term"
+                  type="text"
+                  className="input"
+                  placeholder="e.g., Pittaja jvara"
+                  value={ayurvedaTerm}
+                  onChange={(e) => setAyurvedaTerm(e.target.value)}
+                />
+                <Button onClick={handleAyurvedaSearch} className="w-full">
+                  Search Ayurveda Term
+                </Button>
+              </div>
+
+              {icd11Code && (
+              <div className="mt-4 bg-primary/10 text-black p-4 rounded-lg text-center font-bold text-lg">
+                  ICD-11 Code: {icd11Code}
+                </div>
+              )}
+              {error && (
+                <div className="mt-4 bg-red-500/10 text-red-500 p-4 rounded-lg text-center">
+                  {error}
+                </div>
+              )}
+            </CardContent>
+          </Card>
+        </div>
+      </div>
+    </section>
 
       {/* Benefits Section */}
       <section className="py-20">

@@ -31,7 +31,39 @@ const Patients = () => {
   const [selectedPatient, setSelectedPatient] = useState<any>(null);
   const [isAddPatientOpen, setIsAddPatientOpen] = useState(false);
   const { toast } = useToast();
+const [diagnosisSearch, setDiagnosisSearch] = useState("");
+const [showTreatmentForm, setShowTreatmentForm] = useState(false);
+const [selectedDiagnosis, setSelectedDiagnosis] = useState({
+  namasteCode: "",
+  icd11Code: "",
+  treatmentName: "",
+});
+const diagnosisMap = {
+  "pittaja jvara": {
+    namasteCode: "NAMASTE-A002",
+    icd11Code: "ICD11-1A02.1",
+  },
+  "vatavyadhi": {
+    namasteCode: "NAMASTE-C001",
+    icd11Code: "ICD11-3C80.0",
+  },
+  // Add more mappings as needed
+};
+const handleAddToProblemList = () => {
+  const term = diagnosisSearch.trim().toLowerCase();
+  const match = diagnosisMap[term];
 
+  if (match) {
+    setSelectedDiagnosis({
+      namasteCode: match.namasteCode,
+      icd11Code: match.icd11Code,
+      treatmentName: "",
+    });
+    setShowTreatmentForm(true);
+  } else {
+    alert("Diagnosis not found. Please try a valid NAMASTE/ICD-11 term.");
+  }
+};
   const patients = [
     {
       id: "EMR-20250908-000123",
@@ -234,6 +266,12 @@ const Patients = () => {
                     >
                       Request Patient
                     </Button>
+                           <Button 
+                      className="w-full bg-primary hover:bg-primary/90"
+                      onClick={() => handleRequestPatient(patient)}
+                    >
+                     Emergency  Request Patient
+                    </Button>
                     
                     <div className="flex items-center space-x-4 p-4 bg-muted/30 rounded-lg">
                       <Avatar className="h-12 w-12">
@@ -250,19 +288,53 @@ const Patients = () => {
 
                   {/* Diagnosis Entry */}
                   <div className="space-y-4">
-                    <h3 className="font-semibold text-lg">Diagnosis Entry</h3>
-                    
-                    <div className="relative">
-                      <Search className="h-4 w-4 absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground" />
-                      <Input 
-                        placeholder="Search diagnosis (NAMASTE/ICD-11)"
-                        className="pl-10"
-                      />
-                    </div>
-                    
-                    <Button variant="outline" className="w-full">
-                      Add to Problem List
-                    </Button>
+               <h3 className="font-semibold text-lg">Diagnosis Entry</h3>
+
+  <div className="relative">
+    <Search className="h-4 w-4 absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground" />
+    <Input
+      placeholder="Search diagnosis eg pittaja jvara"
+      className="pl-10"
+      value={diagnosisSearch}
+      onChange={(e) => setDiagnosisSearch(e.target.value)}
+    />
+  </div>
+
+  <Button variant="outline" className="w-full" onClick={handleAddToProblemList}>
+    Add to Problem List
+  </Button>
+{showTreatmentForm && (
+  <div className="mt-6 space-y-4 border-t pt-6">
+    <h4 className="font-semibold text-md">Treatment Details</h4>
+
+    <div className="grid grid-cols-2 gap-4">
+      <div>
+        <label className="text-sm font-medium">NAMASTE Code</label>
+        <Input value={selectedDiagnosis.namasteCode} disabled />
+      </div>
+      <div>
+        <label className="text-sm font-medium">ICD-11 Code</label>
+        <Input value={selectedDiagnosis.icd11Code} disabled />
+      </div>
+    </div>
+
+    <div>
+      <label className="text-sm font-medium">Treatment Name</label>
+      <Input
+        placeholder="Enter treatment name"
+        value={selectedDiagnosis.treatmentName}
+        onChange={(e) =>
+          setSelectedDiagnosis((prev) => ({
+            ...prev,
+            treatmentName: e.target.value,
+          }))
+        }
+      />
+    </div>
+
+    <Button className="w-full">Save Diagnosis & Treatment</Button>
+  </div>
+)}
 
                     {/* Problem List */}
                     <div>
