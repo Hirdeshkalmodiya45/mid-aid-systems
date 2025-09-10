@@ -20,48 +20,48 @@ const Landing = () => {
   const features = [
     {
       icon: Shield,
-      title: "EMR Data Security",
-      description: "Bank-level encryption and privacy for all electronic medical records with HIPAA compliance.",
+      title: "Intelligent Code Lookup",
+      description: "Real-time suggestions for NAMASTE and ICD-11 codes as clinicians type diagnoses, improving efficiency and accuracy.",
       gradient: "bg-gradient-to-br from-primary/10 to-primary/20"
     },
     {
-      icon: Activity,
-      title: "Patient Health Tracking",
-      description: "Real-time monitoring and comprehensive health analytics for better patient outcomes.",
+      icon: ArrowRight,
+      title: "Bidirectional Code Translation",
+      description: "Seamless translation between NAMASTE and ICD-11 codes - enter one system and automatically get the corresponding code.",
       gradient: "bg-gradient-to-br from-accent/10 to-accent/20"
     },
     {
       icon: Database,
-      title: "NAMASTE + ICD Integration",
-      description: "Seamless integration with international diagnostic and treatment classification systems.",
+      title: "Secure FHIR Integration",
+      description: "Upload FHIR Bundles containing patient data with both NAMASTE and ICD-11 codes for comprehensive dual-coding.",
       gradient: "bg-gradient-to-br from-warning/10 to-warning/20"
     },
     {
-      icon: BarChart3,
-      title: "Intuitive Dashboard",
-      description: "User-friendly dashboard providing quick access to essential health and practice metrics.",
+      icon: Heart,
+      title: "Ayurvedic Treatment Plans",
+      description: "Digital prescription tools for traditional Ayurvedic medicines, doshas, and personalized treatment protocols.",
+      gradient: "bg-gradient-to-br from-success/10 to-success/20"
+    },
+    {
+      icon: Activity,
+      title: "Dosha Assessment Integration",
+      description: "Digital Prakriti and Vikriti analysis tools integrated with modern diagnostic workflows.",
       gradient: "bg-gradient-to-br from-primary/10 to-accent/10"
     },
     {
       icon: FileText,
-      title: "Insurance Claims",
-      description: "Streamlined process for managing and submitting insurance claims with integrated billing.",
-      gradient: "bg-gradient-to-br from-success/10 to-success/20"
-    },
-    {
-      icon: Calendar,
-      title: "Appointment Management",
-      description: "Efficient scheduling system with automated reminders and calendar synchronization.",
+      title: "Traditional Medicine Documentation",
+      description: "Comprehensive documentation system for Panchakosha, Tridosha principles, and classical Ayurvedic texts.",
       gradient: "bg-gradient-to-br from-warning/10 to-primary/10"
     }
   ];
 
   const benefits = [
-    "Integrate traditional healing practices with modern healthcare technology",
-    "Comprehensive patient care management system",
-    "Advanced analytics for better healthcare decisions",
-    "Secure and compliant data handling",
-    "Streamlined workflow for healthcare providers"
+    "Bridge 5000+ years of Ayurvedic wisdom with modern digital healthcare systems",
+    "Dual-coding system supporting both NAMASTE and ICD-11 classification standards",
+    "Sanskrit terminology and classical text integration for authentic practice",
+    "FHIR-compliant data exchange ensuring global healthcare interoperability",
+    "Evidence-based traditional medicine documentation and research support"
   ];
 
   return (
@@ -74,14 +74,14 @@ const Landing = () => {
           <div className="space-y-8">
             <div className="space-y-4">
               <h1 className="text-4xl lg:text-6xl font-bold leading-tight">
-                Integrated
-                <span className="block text-primary">Healthcare:</span>
-                <span className="block">Advancing Wellness</span>
-                <span className="block">with HealthConnect</span>
+                Modern
+                <span className="block text-primary">Āyurveda:</span>
+                <span className="block">Bridging Ancient</span>
+                <span className="block">Wisdom with Digital Healthcare</span>
               </h1>
               <p className="text-lg text-muted-foreground leading-relaxed max-w-lg">
-                HealthConnect harmonizes traditional healing practices with cutting-edge healthcare technology, 
-                creating a comprehensive platform that bridges ancient wisdom with modern medical excellence.
+                The world's first comprehensive digital platform integrating traditional Ayurvedic practices with 
+                modern healthcare technology, featuring dual NAMASTE-ICD11 coding for authentic traditional medicine documentation.
               </p>
             </div>
             
@@ -106,8 +106,8 @@ const Landing = () => {
                     <Heart className="h-6 w-6 text-primary-foreground" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-lg">Dr. Emily Chen</h3>
-                    <p className="text-muted-foreground">Integrative Medicine Specialist</p>
+                    <h3 className="font-semibold text-lg">Dr. Rajesh Sharma</h3>
+                    <p className="text-muted-foreground">Ayurvedic Medicine Specialist (BAMS, MD)</p>
                   </div>
                 </div>
                 <div className="bg-accent/10 rounded-lg p-4">
@@ -135,7 +135,7 @@ const Landing = () => {
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold mb-4">Platform Features</h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Comprehensive healthcare management tools designed for modern medical practices
+              Advanced digital tools for authentic Ayurvedic practice with modern healthcare integration
             </p>
           </div>
           
@@ -159,12 +159,12 @@ const Landing = () => {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl lg:text-4xl font-bold mb-6">
-                Understanding Modern Healthcare
+                Understanding Ayurvedic Digital Healthcare
               </h2>
               <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-                Our platform represents a breakthrough in healthcare technology, combining traditional healing wisdom 
-                with advanced digital solutions. We believe in creating sustainable healthcare ecosystems that benefit 
-                both practitioners and patients through innovative technology integration.
+                Our platform revolutionizes traditional Ayurveda by seamlessly integrating ancient Vedic principles 
+                with contemporary healthcare standards. Experience the harmony of time-tested wisdom and cutting-edge 
+                technology, designed to preserve authenticity while enhancing clinical outcomes.
               </p>
               
               <div className="space-y-4">
@@ -183,22 +183,22 @@ const Landing = () => {
             
             <div className="relative">
               <div className="bg-gradient-to-br from-success/10 to-primary/10 rounded-2xl p-8">
-                <div className="grid grid-cols-2 gap-6">
+                  <div className="grid grid-cols-2 gap-6">
                   <div className="text-center">
-                    <div className="text-3xl font-bold text-primary">15K+</div>
-                    <div className="text-sm text-muted-foreground">Patients Served</div>
+                    <div className="text-3xl font-bold text-primary">5000+</div>
+                    <div className="text-sm text-muted-foreground">Years of Tradition</div>
                   </div>
                   <div className="text-center">
-                    <div className="text-3xl font-bold text-accent">98%</div>
-                    <div className="text-sm text-muted-foreground">Satisfaction Rate</div>
+                    <div className="text-3xl font-bold text-accent">2000+</div>
+                    <div className="text-sm text-muted-foreground">NAMASTE Codes</div>
                   </div>
                   <div className="text-center">
-                    <div className="text-3xl font-bold text-warning">24/7</div>
-                    <div className="text-sm text-muted-foreground">Support Available</div>
+                    <div className="text-3xl font-bold text-warning">Sanskrit</div>
+                    <div className="text-sm text-muted-foreground">Text Integration</div>
                   </div>
                   <div className="text-center">
-                    <div className="text-3xl font-bold text-success">500+</div>
-                    <div className="text-sm text-muted-foreground">Healthcare Providers</div>
+                    <div className="text-3xl font-bold text-success">FHIR</div>
+                    <div className="text-sm text-muted-foreground">Compliant</div>
                   </div>
                 </div>
               </div>
@@ -212,11 +212,11 @@ const Landing = () => {
         <div className="container mx-auto px-4 text-center">
           <div className="max-w-3xl mx-auto">
             <h2 className="text-3xl lg:text-4xl font-bold text-primary-foreground mb-6">
-              Ready to Transform Your Healthcare Practice?
+              Ready to Digitize Your Ayurvedic Practice?
             </h2>
             <p className="text-lg text-primary-foreground/90 mb-8">
-              Join thousands of healthcare providers who are already using HealthConnect 
-              to deliver better patient care and streamline their operations.
+              Join the revolution of traditional medicine practitioners embracing digital transformation 
+              while preserving the authentic essence of Ayurveda.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" variant="secondary" className="text-lg px-8" asChild>
@@ -239,11 +239,11 @@ const Landing = () => {
                 <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
                   <span className="text-primary-foreground font-bold">H</span>
                 </div>
-                <span className="font-bold text-lg">HealthConnect</span>
-              </div>
-              <p className="text-muted-foreground text-sm">
-                Bridging traditional healing with modern healthcare technology.
-              </p>
+                  <span className="font-bold text-lg">AyurvedaConnect</span>
+                </div>
+                <p className="text-muted-foreground text-sm">
+                  Preserving ancient wisdom through modern digital healthcare technology.
+                </p>
             </div>
             
             <div>
@@ -277,7 +277,7 @@ const Landing = () => {
           </div>
           
           <div className="border-t mt-8 pt-8 text-center text-sm text-muted-foreground">
-            © 2024 HealthConnect. All rights reserved.
+            © 2024 AyurvedaConnect. All rights reserved. | सर्वे भवन्तु सुखिनः
           </div>
         </div>
       </footer>
