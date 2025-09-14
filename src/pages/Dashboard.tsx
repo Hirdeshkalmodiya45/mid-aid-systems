@@ -17,7 +17,7 @@ import {
   BarChart3
 } from "lucide-react";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, LineChart, Line, PieChart, Pie, Cell } from 'recharts';
-
+import {Link} from "react-router-dom";
 const Dashboard = () => {
   const [selectedPeriod, setSelectedPeriod] = useState("month");
   const [selectedSystem, setSelectedSystem] = useState("homeopathy");
@@ -63,7 +63,7 @@ const Dashboard = () => {
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
           <div>
             <h1 className="text-3xl font-bold text-foreground mb-2">DASHBOARD</h1>
-            <p className="text-muted-foreground">Home / Dashboard</p>
+            <p className="text-muted-foreground"><Link to="/">    Home</Link> / Dashboard</p>
           </div>
           
           <div className="flex items-center gap-3">

@@ -9,6 +9,7 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import Header from "@/components/Header";
+import { Link } from "react-router-dom";
 import { 
   Search, 
   Plus, 
@@ -55,12 +56,9 @@ import { useToast } from "@/hooks/use-toast";
             <Button
               className="w-full"
               variant="default"
-              onClick={() => {
-                window.location.href = "/myreport";
-                // You can add additional logic here if needed after redirect
-              }}
             >
-              Go to Patient Portal
+                 <Link to="/myreport">
+              Go to Patient </Link>
             </Button>
         </CardContent>
       </Card>
@@ -79,11 +77,11 @@ import { useToast } from "@/hooks/use-toast";
             <Button
               className="w-full"
               variant="default"
-              onClick={() => {
-                window.location.href = "/patients";
-              }}
+             
             >
-              Go to Doctor Portal
+           
+                <Link to="/Patients">
+              Go to Doctor Portal</Link>
             </Button>
           </CardContent>
         </Card>

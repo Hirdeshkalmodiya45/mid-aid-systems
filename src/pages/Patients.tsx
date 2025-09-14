@@ -9,6 +9,8 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import Header from "@/components/Header";
+import MRDForm from "@/pages/MRDForm";
+import { Link } from "react-router-dom";
 import { 
   Search, 
   Plus, 
@@ -123,6 +125,7 @@ const handleAddToProblemList = () => {
     patient.doctor.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
+
   const handleLogout = () => {
     console.log("Logging out...");
   };
@@ -133,6 +136,7 @@ const handleAddToProblemList = () => {
       description: `Access request sent for ${patient.name}`,
     });
   };
+
 
   const handleAddPatient = () => {
     toast({
@@ -272,7 +276,15 @@ const handleAddToProblemList = () => {
                     >
                      Emergency  Request Patient
                     </Button>
-                    
+                       <Button 
+                      className="w-full bg-primary hover:bg-primary/90"
+                    >  
+                     <Link to="/MRDform" state={{ patient: patient }}>
+          Entry MRD DATA
+        </Link>
+                    </Button>
+                   
+
                     <div className="flex items-center space-x-4 p-4 bg-muted/30 rounded-lg">
                       <Avatar className="h-12 w-12">
                         <AvatarImage src={patient.avatar} alt={patient.name} />

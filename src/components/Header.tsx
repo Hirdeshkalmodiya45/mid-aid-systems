@@ -59,6 +59,14 @@ const Header = ({ isLoggedIn = false, onLogout }: HeaderProps) => {
                 >
                   Analytics
                 </Link>
+                 <Link
+                  to="/namaste-icd-11"
+                  className={`text-sm font-medium transition-colors hover:text-primary ${
+                    isActive('/namaste-icd-11') ? 'text-primary' : 'text-muted-foreground'
+                  }`}
+                >
+                 NAMASTE/ICD-11 
+                </Link>
               </nav>
             )}
           </div>
