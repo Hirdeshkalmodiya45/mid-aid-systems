@@ -14,9 +14,10 @@ import Myrecord from "./pages/Myrecord";
 import P from "./pages/p";
 import MRDForm from "./pages/MRDForm";
 import Namasteicd11 from "./pages/Namasteicd11";
+
 const queryClient = new QueryClient();
 
-// ✅ Wrapper component to extract patient from router state
+// ✅ Wrapper to extract patient from router state
 const MRDFormWrapper = () => {
   const location = useLocation();
   const navigate = useNavigate();
@@ -38,7 +39,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <BrowserRouter  basename="/mid-aid-systems">
+      <BrowserRouter basename="/mid-aid-systems">
         <Routes>
           <Route path="/" element={<Landing />} />
           <Route path="/dashboard" element={<Dashboard />} />
@@ -47,10 +48,8 @@ const App = () => (
           <Route path="/doctors" element={<Doctors />} />
           <Route path="/myreport" element={<Myrecord />} />
           <Route path="/analytics" element={<Analytics />} />
-          {/* ✅ Dynamic MRDForm route */}
           <Route path="/MRDform" element={<MRDFormWrapper />} />
-                  <Route path="/namaste-icd-11" element={<Namasteicd11 />} />
-          {/* Catch-all route for 404 */}
+          <Route path="/namaste-icd-11" element={<Namasteicd11 />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
