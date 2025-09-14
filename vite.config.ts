@@ -14,4 +14,15 @@ export default defineConfig(({ mode }) => ({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          react: ['react', 'react-dom'],
+          ui: ['@headlessui/react', 'tailwindcss'],
+        },
+      },
+    },
+    chunkSizeWarningLimit: 1000,
+  },
 }));

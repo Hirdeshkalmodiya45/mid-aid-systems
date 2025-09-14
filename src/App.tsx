@@ -20,7 +20,7 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Landing />} />
+          <Route path="https://hirdeshkalmodiya45.github.io/mid-aid-systems/" element={<Landing />} />
           <Route path="/dashboard" element={<Dashboard />} />
 <Route path="/p" element={<P />} />
           <Route path="/patients" element={<Patients />} />
